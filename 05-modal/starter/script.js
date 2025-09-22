@@ -44,3 +44,7 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
+modalEl.setAttribute('role', 'dialog');
+modalEl.setAttribute('aria-modal', 'true');
+
+btnCloseModalEl.setAttribute('aria-label', 'Close modal');
