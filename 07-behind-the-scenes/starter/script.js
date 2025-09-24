@@ -95,23 +95,99 @@
 // //user.printHobbiesBad(); // Fails - this.name is undefined
 // user.printHobbiesGood(); // Works - shows all hobbies
 
-const functionTypes = {
-  regularFunction: function () {
-    console.log('Arguments length:', arguments.length);
-    console.log('First argument:', arguments[0]);
-  },
+// const functionTypes = {
+//   regularFunction: function () {
+//     console.log('Arguments length:', arguments.length);
+//     console.log('First argument:', arguments[0]);
+//   },
 
-  arrowFunction: () => {
-    console.log(arguments);
-    console.log('Arrow function called');
-  },
+//   arrowFunction: () => {
+//     console.log(arguments);
+//     console.log('Arrow function called');
+//   },
 
-  modernFunction: (...args) => {
-    console.log('Args length:', args.length);
-    console.log('First arg:', args[0]);
-  },
+//   modernFunction: (...args) => {
+//     console.log('Args length:', args.length);
+//     console.log('First arg:', args[0]);
+//   },
+// };
+
+// functionTypes.regularFunction('Hello', 'World');
+// //functionTypes.arrowFunction('test');
+// functionTypes.modernFunction('modern', 'approach');
+
+// //primitive
+// let age = 30;
+
+// //we copy the primitive, making independent copy
+// let oldAge = age;
+
+// age = 31;
+
+// console.log('age', age);
+
+// console.log('oldAge', oldAge);
+
+// // OBJECT HEAP
+// // objects are stored in heap, variables hold references
+// const me = { name: 'Jonas', age: 30 };
+
+// const friend = me;
+
+// friend.age = 27;
+
+// console.log('Me:', me);
+// console.log('Friend:', friend);
+
+// function changeAge(person, newAge) {
+//     person.age = newAge;
+//     return person;
+// }
+
+// const originalPerson = { name: 'Jonas', age: 25 };
+
+// const updatedPerson = changeAge(originalPerson, 30);
+
+// console.log('Same Object?:', originalPerson === updatedPerson);
+
+// //SOLUTION TO MAKE A COPY
+// const original = {
+//   name: 'Alice',
+//   age: 28,
+//   hobbies: ['reading', 'codings'],
+// };
+
+// const shallowCopy = { ...original };
+
+// shallowCopy.name = 'Bob';
+
+// console.log('Original Name:', original.name);
+// console.log('Shallow Name:', shallowCopy.name);
+
+// shallowCopy.hobbies.push('gaming');
+
+// console.log('Original Hobbies:', original.hobbies);
+// console.log('Shallow Hobbies:', shallowCopy.hobbies);
+
+//DEEP Copy
+const deepOriginal = {
+    name: 'Charlie',
+    age: 32,
+    address: { city: 'Paris', country: 'France' },
+    hobbies: ['travel', 'photography'],
 };
 
-functionTypes.regularFunction('Hello', 'World');
-//functionTypes.arrowFunction('test');
-functionTypes.modernFunction('modern', 'approach');
+const deepCopy = structuredClone (deepOriginal);
+
+deepCopy.address.city = 'London';
+deepCopy.hobbies.push('cooking');
+deepCopy.name = 'Lex';
+
+console.log('Original Address:', deepOriginal.address);
+console.log('Copy Address:', deepCopy.address);
+
+console.log('Original Hobbies:', deepOriginal.hobbies);
+console.log('Copy Hobbies:', deepCopy.hobbies);
+
+console.log('Original Name:', deepOriginal.name);
+console.log('Copy Name:', deepCopy.name);
